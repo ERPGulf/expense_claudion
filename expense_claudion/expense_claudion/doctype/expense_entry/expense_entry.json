@@ -1,0 +1,197 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-06-03 07:38:22.872173",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "claimant_type",
+  "party",
+  "company",
+  "cost_center",
+  "column_break_bzwq",
+  "payment_method",
+  "payable_account",
+  "tax_account",
+  "column_break_lcik",
+  "posting_date",
+  "remarks",
+  "reference_no",
+  "section_break_ltvt",
+  "expense_lines",
+  "summary_section",
+  "expense_subtotal",
+  "taxed_lines",
+  "column_break_otdy",
+  "total_vat",
+  "grand_total",
+  "section_break_yh53",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_yh53",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Expense Entry",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "claimant_type",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Claimant Type",
+   "options": "DocType",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "column_break_bzwq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Series",
+   "options": "EXP-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Cost Center",
+   "options": "Cost Center"
+  },
+  {
+   "fieldname": "party",
+   "fieldtype": "Dynamic Link",
+   "label": "Party",
+   "options": "claimant_type"
+  },
+  {
+   "fieldname": "payment_method",
+   "fieldtype": "Select",
+   "label": "Payment Method",
+   "options": "\nReimburse Later\nCash\nBank Transfer\nPetty Cash"
+  },
+  {
+   "fieldname": "column_break_lcik",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "payable_account",
+   "fieldtype": "Link",
+   "label": "Payable Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "tax_account",
+   "fieldtype": "Link",
+   "label": "Tax Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "reference_no",
+   "fieldtype": "Small Text",
+   "label": "Reference No"
+  },
+  {
+   "fieldname": "section_break_ltvt",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "expense_lines",
+   "fieldtype": "Table",
+   "label": "Expense Lines",
+   "options": "Expense Lines"
+  },
+  {
+   "fieldname": "summary_section",
+   "fieldtype": "Section Break",
+   "label": "Summary"
+  },
+  {
+   "fieldname": "expense_subtotal",
+   "fieldtype": "Currency",
+   "label": "Expense Subtotal",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_otdy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_vat",
+   "fieldtype": "Currency",
+   "label": "Total VAT",
+   "read_only": 1
+  },
+  {
+   "fieldname": "taxed_lines",
+   "fieldtype": "Int",
+   "label": "Taxed Lines",
+   "read_only": 1
+  },
+  {
+   "fieldname": "grand_total",
+   "fieldtype": "Currency",
+   "label": "Grand Total",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-06-05 13:35:52.978902",
+ "modified_by": "Administrator",
+ "module": "expense_claudion",
+ "name": "Expense Entry",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
