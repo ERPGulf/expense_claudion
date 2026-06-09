@@ -7,6 +7,12 @@ frappe.ui.form.on('Expense Entry', {
         frm.set_query('tax_account', () => ({
             filters: { account_type: 'Tax', is_group: 0}
         }));
+
+        frm.set_query('cost_center', () => ({
+            filters: {
+                is_group: 0
+            }
+        }));
     },
 
     onload(frm) {
