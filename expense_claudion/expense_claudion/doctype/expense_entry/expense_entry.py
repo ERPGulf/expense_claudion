@@ -10,7 +10,6 @@ from erpnext.accounts.utils import get_account_currency
 
 class ExpenseEntry(Document):
 
-
     def on_submit(self):
         self.make_gl_entries()
 
@@ -23,55 +22,69 @@ class ExpenseEntry(Document):
             (self.doctype, self.name),
         )
 
-   
     @frappe.whitelist()
     def get_gl_preview(self):
         return self.build_gl_entries(preview=True)
-
 
     def make_gl_entries(self):
         gl_entries = self.build_gl_entries(preview=False)
         make_gl_entries(gl_entries, cancel=False, adv_adj=False)
 
-
     def build_gl_entries(self, preview=False):
         gl_entries = []
         total_tax = 0
+        expense_accounts = []
 
         for row in self.expense_lines:
+            expense_accounts.append(row.account)
+
             gl_entries.append(
                 self.get_gl_dict(
                     account=row.account,
                     debit=row.amount,
                     credit=0,
+                    against_account=self.payable_account,
                     remarks=row.description or self.remarks or "Expense",
                 )
             )
+
             total_tax += flt(row.tax_amount)
 
+
         if total_tax > 0 and self.tax_account:
+            expense_accounts.append(self.tax_account)
+
             gl_entries.append(
                 self.get_gl_dict(
                     account=self.tax_account,
                     debit=total_tax,
                     credit=0,
+                    against_account=self.payable_account,
                     remarks="Tax",
                 )
             )
+
 
         gl_entries.append(
             self.get_gl_dict(
                 account=self.payable_account,
                 debit=0,
                 credit=self.grand_total,
+                against_account=", ".join(expense_accounts),
                 remarks="Expense Settlement",
             )
         )
 
         return gl_entries
 
-
-    def get_gl_dict(self, account, debit=0, credit=0, remarks=None):
+    def get_gl_dict(
+        self,
+        account,
+        debit=0,
+        credit=0,
+        against_account=None,
+        remarks=None,
+    ):
         """
         Correct GL Entry for ERPNext v15
         """
@@ -112,6 +125,10 @@ class ExpenseEntry(Document):
 
             "party_type": party_type,
             "party": party,
+
+            "against": against_account,
+            "against_account": against_account,
+
             "cost_center": self.cost_center,
             "remarks": remarks,
             "is_opening": "No",
