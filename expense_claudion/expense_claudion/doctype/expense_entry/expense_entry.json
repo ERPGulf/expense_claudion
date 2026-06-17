@@ -62,7 +62,8 @@
   {
    "fieldname": "posting_date",
    "fieldtype": "Date",
-   "label": "Posting Date"
+   "label": "Posting Date",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_bzwq",
@@ -85,7 +86,8 @@
    "fieldname": "cost_center",
    "fieldtype": "Link",
    "label": "Cost Center",
-   "options": "Cost Center"
+   "options": "Cost Center",
+   "reqd": 1
   },
   {
    "fieldname": "party",
@@ -168,7 +170,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-06-08 09:38:38.919592",
+ "modified": "2026-06-17 09:12:48.452015",
  "modified_by": "Administrator",
  "module": "expense_claudion",
  "name": "Expense Entry",
