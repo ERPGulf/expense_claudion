@@ -97,6 +97,7 @@ bench install-app expense_claudion
 bench migrate
 bench restart 
 ```
+---
 
 ## Configuration Notes
 

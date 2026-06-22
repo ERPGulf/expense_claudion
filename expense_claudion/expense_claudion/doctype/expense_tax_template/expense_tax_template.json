@@ -28,7 +28,7 @@
  "modified": "2026-06-05 13:04:27.003872",
  "modified_by": "Administrator",
  "module": "expense_claudion",
- "name": "Tax Template",
+ "name": "Expense Tax Template",
  "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [

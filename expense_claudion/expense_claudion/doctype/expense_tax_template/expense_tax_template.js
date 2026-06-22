@@ -1,7 +1,7 @@
 // Copyright (c) 2026, erpgulf.com and contributors
 // For license information, please see license.txt
 
-// frappe.ui.form.on("Tax Template", {
+// frappe.ui.form.on("Expense Tax Template", {
 // 	refresh(frm) {
 
 // 	},

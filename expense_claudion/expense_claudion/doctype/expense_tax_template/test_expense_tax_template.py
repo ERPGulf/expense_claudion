@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestTaxTemplate(FrappeTestCase):
+class TestExpenseTaxTemplate(FrappeTestCase):
 	pass
