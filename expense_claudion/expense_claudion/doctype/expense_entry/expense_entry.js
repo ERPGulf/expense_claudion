@@ -89,7 +89,7 @@ frappe.ui.form.on('Expense Lines', {
             return;
         }
 
-        frappe.db.get_value('Tax Template', row.tax_template, 'percentage_')
+        frappe.db.get_value('Expense Tax Template', row.tax_template, 'percentage_')
             .then(r => {
                 row.tax_ = r.message?.percentage_ || 0;
                 calculate_row_total(row);
