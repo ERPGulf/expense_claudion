@@ -117,7 +117,6 @@ frappe.ui.form.on('Expense Lines', {
 
 
 
-
 function show_ledger_preview(frm) {
     frappe.call({
         method: 'get_gl_preview',
